@@ -1,0 +1,14 @@
+{% extends "learning_logs/base.html" %}
+
+{% block page_header %}
+  <div class="jumbotron">
+    <h1 class="display-3">记录你的学习。</h1>
+    <p class="lead">制作你自己的学习日志，把你正在学习的主题列在一张清单上。<br>无论何时，当你在一个话题上学到了新的东西，把你学过的东西做个总结。</p>
+    {% if user.is_authenticated %}
+      <a class="btn btn-lg btn-primary" href="{% url 'learning_logs:topics' %}" role="button">开始 &raquo;</a>
+    {% else %}
+      <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">注册 &raquo;</a>
+      <!--&raquo表示>>-->
+    {% endif %}
+  </div>
+{% endblock page_header %}
